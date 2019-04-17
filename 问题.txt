@@ -1,0 +1,29 @@
+1、http 协议相关、浏览器如何渲染
+2、react、vue 底层实现
+3、react、vue diff算法
+4、vue 项目优化
+  (1)、首页加载优化
+5、vue 项目 token 
+6、常用算法
+7、原型链、继承
+8、es6 相关
+
+
+vue 单向数据流 双向绑定？
+vue 组件data为何是函数，不是对象？
+vue data 中的数组，修改其中一个值 会变化吗？
+vue 添加一个data中没有的值 会变化吗？
+vue 列表循环中为什么要加key？
+
+es6中async/await，await setTimeout ？
+css BFC
+
+ Node 事件驱动怎么理解，Node的异步特性体现在哪里
+
+nodejs express 的中间件的理解
+
+AMD和CMD 的区别？
+
+MVC和MVVM 的区别
+
+es7、es8
