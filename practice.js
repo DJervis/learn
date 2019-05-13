@@ -126,3 +126,34 @@ function getMinTime(info, start, end) {
   return result
 }
 getMinTime(info, 20, 60)
+
+/* js实现栈 出栈 入栈等 
+  入栈：NumberStack.push(num) 、出栈：NumberStack.pop() 、找出栈中第n大的数：NumberStack.max(n)
+*/
+function NumberStack() {
+  this.stack = []; //存储栈
+  this.maxStack = []; //辅助栈，从小到大的排序
+}
+NumberStack.prototype.push = function(num){
+  if(Object.prototype.toString.call(num)!="object Number") return false;
+  this.stack.push(num);
+  if(!this.maxStack.length) {
+    this.maxStack.push(num)
+  } else {
+    let len = this.maxStack.length;
+    for(let i=0; i<len; i++) {
+      if(num < this.maxStack[i]) {
+        this.maxStack.splice(i, 0, num);
+        break;
+      }
+    }
+  }
+}
+NumberStack.prototype.pop = function(){
+  let num = this.stack.pop();
+  this.maxStack.splice(this.maxStack.indexOf(num), 1);
+}
+NumberStack.prototype.max = function(n){
+  if(n < 1 || n > this.maxStack.length) return false;
+  return this.maxStack[this.maxStack.length - n];
+}
