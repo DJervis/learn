@@ -157,3 +157,32 @@ NumberStack.prototype.max = function(n){
   if(n < 1 || n > this.maxStack.length) return false;
   return this.maxStack[this.maxStack.length - n];
 }
+
+/** jS编写一个求和函数sum，使输入sum(2)(3)或输入sum(2,3)，输出结果都为5;然后再扩展sum(2)(3)(4), sum(2,3,4), sum(2,3)(4)等*/
+function sum() {
+  var num = arguments[0];
+  if(arguments.length == 1) {
+    return function(sec) {
+      return num + sec;
+    }
+  } else {
+    var num = 0;
+    for(var i=0; i<arguments.length; i++) {
+      num += arguments[i];
+    }
+    return num;
+  }
+}
+
+/** 函数柯里化 */
+var curry = function(fn) {
+  var args = [].slice.call(arguments, 1);
+  return function() {
+    var newArgs = args.concat([].slice.call(arguments));
+    if(newArgs.length < fn.length) {
+      return curry.call(this, fn, ...newArgs)
+    } else {
+      return fn.apply(this, newArgs)
+    }
+  }
+}
